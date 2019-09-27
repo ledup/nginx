@@ -1,0 +1,25 @@
+version: '2'
+services:
+  nginx:
+    container_name: tests-nginx-nginx
+    hostname: nginx
+    image: ledup/nginx:stable
+    volumes:
+      - .:/src
+    environment:
+      LED_DOCROOT: public
+      LED_VHOSTS: app.localhost
+      LED_PHPFPM_SOCKET: php:9000
+      REDIRECT_CONTROLLER: index.php
+    extends:
+        file: ~/.led/docker-base.yaml
+        service: localuser
+  php:
+    container_name: tests-nginx-phpfpm
+    hostname: php
+    image: php:7-fpm
+    volumes:
+      - .:/src
+    extends:
+        file: ~/.led/docker-base.yaml
+        service: localuser

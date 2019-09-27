@@ -1,0 +1,34 @@
+vars:
+  - DOCROOT
+  - VHOST
+  - EXPOSE
+  - PORT
+  - PHPFPM
+  - BACKEND
+data:
+  DOCROOT:
+    title: Document root (directory with your public files)
+    default: public
+    type: string
+  VHOST:
+    title: Virtual name to access container from host
+    default: app.localhost
+    type: string
+  EXPOSE:
+    title: Export port on host (if need access to port without vhost)
+    default: no
+    type: boolean
+  PORT:
+    title: Port to expose for host access
+    default: 80
+    type: integer
+    check: EXPOSE
+    checked: 0
+  PHPFPM:
+    title: Use PHP-FPM as backend
+    default: yes
+    type: boolean
+  BACKEND:
+    title: Backend php-fpm container
+    default: php
+    type: service

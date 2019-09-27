@@ -1,0 +1,10 @@
+    image: ledup/nginx:stable
+    volumes:
+      - .:/src
+    {%IF EXPOSE%}ports:
+      - "{{PORT}}:80"{%ENDIF EXPOSE%}
+    working_dir: /src
+    environment:
+      LED_DOCROOT: {{DOCROOT}}
+      LED_VHOSTS: {{VHOST}}
+      {%IF PHPFPM%}LED_PHPFPM_SOCKET: {{BACKEND}}:9000{%ENDIF PHPFPM%}
