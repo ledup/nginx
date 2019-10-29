@@ -17,7 +17,7 @@ services:
   php:
     container_name: tests-nginx-phpfpm
     hostname: php
-    image: php:7-fpm
+    image: ledup/php:7.3
     volumes:
       - .:/src
     extends:
