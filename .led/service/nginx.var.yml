@@ -32,3 +32,5 @@ data:
     title: Backend php-fpm container
     default: php
     type: service
+    check: PHPFPM
+    checked: 0
