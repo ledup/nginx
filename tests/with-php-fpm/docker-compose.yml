@@ -1,4 +1,3 @@
-version: '2'
 services:
   nginx:
     container_name: tests-nginx-nginx
@@ -12,14 +11,14 @@ services:
       LED_PHPFPM_SOCKET: php:9000
       REDIRECT_CONTROLLER: index.php
     extends:
-        file: ~/.led/docker-base.yaml
+        file: $HOME/.led/docker-base.yaml
         service: localuser
   php:
     container_name: tests-nginx-phpfpm
     hostname: php
-    image: ledup/php:7.3
+    image: ledup/php:8.4-rl9
     volumes:
       - .:/src
     extends:
-        file: ~/.led/docker-base.yaml
+        file: $HOME/.led/docker-base.yaml
         service: localuser

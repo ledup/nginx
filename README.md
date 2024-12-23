@@ -6,7 +6,7 @@ Docker image for NginX made to use with led.
 
 | Tag         | Description                             |
 | ----------- | --------------------------------------- |
-| **stable**  | NginX 1.16 stable                       |
+| **stable**  | NginX 1.24 on RockyLinux 9              |
 
 ## Usage
 
